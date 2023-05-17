@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "address": "123 fake st",
-    "fullAddress": "123 fake st. Irvine, CA 92656",
+    "address": "123 Fake st",
+    "fullAddress": "123 Fake st. Irvine, CA 92656",
     "city": "Irvine",
     "state": "CA",
     "zipCode": 92656,
@@ -36,7 +36,7 @@
     "sqft": 2800
   },
   {
-    "id": 3,
+    "id": 4,
     "address": "68 Sobrante",
     "fullAddress": "68 Sobrante Aliso Viejo, CA 92656",
     "city": "Aliso Viejo",
