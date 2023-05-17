@@ -1,3 +1,5 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core"
+
 export type CardPropsType = {
   key?: string | number
   className?: string
@@ -8,4 +10,10 @@ export type CardPropsType = {
   bathrooms: number
   yearBuilt: number
   sqft: number
+}
+
+export type IconWrapperType = {
+  data: string | number
+  iconName: IconProp
+  special?: boolean
 }
