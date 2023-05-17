@@ -1,3 +1,4 @@
 export type NavigationProps = {
-  children: string
+  children?: string
+  global?: boolean
 }
