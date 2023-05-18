@@ -14,7 +14,6 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
       const isAuthenticated = localStorage.getItem("isAuthenticated")
 
       if (!isAuthenticated) {
-        console.log("Not authenticated")
         router.push("/login")
       } else {
         setIsAuthenticated(true)
@@ -38,28 +37,3 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 }
 
 export default ProtectedRoute
-
-// import { useRouter } from "next/router"
-// import { useEffect } from "react"
-
-// type ProtectedRouteProps = {
-//   children: React.ReactNode
-// }
-
-// const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-//   const router = useRouter()
-//   //const { isAuthenticated } = useAuth()
-//   const isAuthenticated = localStorage.getItem("isAuthenticated")
-
-//   useEffect(() => {
-//     console.log(`isAuthenticated: ${isAuthenticated} `)
-//     if (!isAuthenticated) {
-//       console.log("Not authenticated")
-//       router.push("/login")
-//     }
-//   }, [isAuthenticated, router])
-
-//   return <>{isAuthenticated ? children : null}</>
-// }
-
-// export default ProtectedRoute

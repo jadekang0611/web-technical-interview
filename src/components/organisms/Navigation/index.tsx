@@ -1,16 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
 import Logo from "../../../../public/static/revive-logo.png"
 import { useAuth } from "../../../hooks/useAuth"
 import { NavigationProps } from "./types"
 
 const Navigation = ({ global }: NavigationProps) => {
   const { authenticatedUser, logout } = useAuth()
-
-  useEffect(() => {
-    console.log(authenticatedUser)
-  })
 
   const handleLogout = () => {
     logout()
