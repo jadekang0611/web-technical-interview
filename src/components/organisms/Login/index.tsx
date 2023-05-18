@@ -1,19 +1,42 @@
 import Link from "next/link"
+import { FormEvent, useState } from "react"
+import { useAuth } from "../../../hooks/useAuth"
 import Button from "../../atoms/Button"
 import Input from "../../atoms/Input"
 
 const LoginForm = () => {
+  const [userEmail, setUserEmail] = useState("")
+  const [userPassword, setUserPassword] = useState("")
+  const [error, setError] = useState("")
+
+  const { authenticateUser } = useAuth()
+
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
+    evt.preventDefault()
+
+    if (!userEmail || !userPassword) {
+      setError("Please enter both email and password.")
+      console.log("not authenticated")
+      return
+    }
+
+    setError("") // Reset error state
+    console.log("authenticated")
+    authenticateUser({ userEmail, userPassword })
+  }
+
   return (
     <div className="min-w-[300px] max-w-[420px]">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-6">
           <Input
             id="email"
             type="email"
             placeholder="Enter email"
             name="email"
+            value={userEmail}
+            onChange={(e) => setUserEmail(e.target.value)}
           />
-          {/* need error handling */}
         </div>
         <div className="field-row">
           <Input
@@ -21,9 +44,11 @@ const LoginForm = () => {
             type="password"
             placeholder="Enter password"
             name="password"
+            value={userPassword}
+            onChange={(e) => setUserPassword(e.target.value)}
           />
-          {/* need error handling */}
         </div>
+        {error && <p className="text-red-500 mt-2 mb-2">{error}</p>}
         <div className="mb-2">
           <Button>Log in</Button>
         </div>
