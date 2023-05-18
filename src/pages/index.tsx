@@ -2,6 +2,7 @@ import type { NextPage } from "next"
 import PropertyData from "../../data/homes.json"
 import { Card } from "../components/molecules/Card"
 import styles from "../styles/Home.module.css"
+import ProtectedRoute from "./ProtectedRoute"
 
 export type PropertyImgsType = {
   [key: number]: string
@@ -14,25 +15,28 @@ const Home: NextPage = () => {
     3: "/static/property3.jpg",
     4: "/static/property4.jpg",
   }
+
   return (
-    <div className={`${styles.container} pt-4`}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {PropertyData.map((property) => (
-          <Card
-            key={property.id}
-            propName={property.address}
-            address={`${
-              property.city + ", " + property.state + " " + property.zipCode
-            }`}
-            propImg={propertyImgs[property.id]}
-            bedrooms={property.bedrooms}
-            bathrooms={property.bathrooms}
-            yearBuilt={property.yearBuilt}
-            sqft={property.sqft}
-          />
-        ))}
+    <ProtectedRoute>
+      <div className={`${styles.container} pt-4`}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 3xl:grid-cols-4 gap-8">
+          {PropertyData.map((property) => (
+            <Card
+              key={property.id}
+              propName={property.address}
+              address={`${
+                property.city + ", " + property.state + " " + property.zipCode
+              }`}
+              propImg={propertyImgs[property.id]}
+              bedrooms={property.bedrooms}
+              bathrooms={property.bathrooms}
+              yearBuilt={property.yearBuilt}
+              sqft={property.sqft}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </ProtectedRoute>
   )
 }
 
