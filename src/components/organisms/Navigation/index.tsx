@@ -34,13 +34,7 @@ const Navigation = ({ global }: NavigationProps) => {
                 </Link>
               </li>
             )
-          : global && (
-              <li>
-                <Link href="/login">
-                  <a>Sign In</a>
-                </Link>
-              </li>
-            )}
+          : null}
       </ul>
     </nav>
   )
