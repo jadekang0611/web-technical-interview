@@ -19,7 +19,7 @@ const Home: NextPage = () => {
   return (
     <ProtectedRoute>
       <div className={`${styles.container} pt-4`}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 3xl:grid-cols-4 gap-8">
           {PropertyData.map((property) => (
             <Card
               key={property.id}

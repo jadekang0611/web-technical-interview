@@ -23,8 +23,6 @@ const LoginLayout = ({ children }: LoginLayoutProps) => {
             <Image
               src="/static/revive-signin-pg-img.jpeg"
               alt="Nice house"
-              // width={500}
-              // height={500}
               layout="fill"
               objectFit="cover"
             />
