@@ -7,21 +7,11 @@ import Input from "../../atoms/Input"
 const LoginForm = () => {
   const [userEmail, setUserEmail] = useState("")
   const [userPassword, setUserPassword] = useState("")
-  const [error, setError] = useState("")
 
-  const { authenticateUser } = useAuth()
+  const { authenticateUser, error } = useAuth()
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault()
-
-    if (!userEmail || !userPassword) {
-      setError("Please enter both email and password.")
-      console.log("not authenticated")
-      return
-    }
-
-    setError("") // Reset error state
-    console.log("authenticated")
     authenticateUser({ userEmail, userPassword })
   }
 
